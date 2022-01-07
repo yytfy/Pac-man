@@ -1,0 +1,1 @@
+ C:/tool/vcpkg/vcpkg-2021.05.12/installed/x64-windows/debug/lib/freeglutd.lib -lopengl32 -lglu32 -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

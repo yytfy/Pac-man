@@ -1,9 +1,5 @@
-
 #define GLUT_DISABLE_ATEXIT_HACK
-#define _STDCALL_SUPPORTED
-#include"gl/glut.h"
-#include<stdio.h>
-#include<windows.h>
+#include <gl/glut.h>
 
 
 using namespace std;

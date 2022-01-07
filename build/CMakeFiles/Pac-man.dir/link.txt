@@ -1,0 +1,3 @@
+C:\tool\CMake\bin\cmake.exe -E rm -f CMakeFiles\Pac-man.dir/objects.a
+G:\mingw64\bin\ar.exe qc CMakeFiles\Pac-man.dir/objects.a @CMakeFiles\Pac-man.dir\objects1.rsp
+G:\mingw64\bin\x86_64-w64-mingw32-g++.exe -g -Wl,--whole-archive CMakeFiles\Pac-man.dir/objects.a -Wl,--no-whole-archive -o Pac-man.exe -Wl,--out-implib,libPac-man.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Pac-man.dir\linklibs.rsp
