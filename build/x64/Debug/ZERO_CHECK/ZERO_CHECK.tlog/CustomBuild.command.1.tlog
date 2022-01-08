@@ -1,0 +1,10 @@
+^C:\USERS\51465\DESKTOP\PROJECT\PAC-MAN\BUILD\CMAKEFILES\9563EB8AF57669CC2FD7628503061DE4\GENERATE.STAMP.RULE
+setlocal
+C:\tool\CMake\bin\cmake.exe -SC:/Users/51465/Desktop/Project/Pac-man -BC:/Users/51465/Desktop/Project/Pac-man/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/51465/Desktop/Project/Pac-man/build/Pac-man.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
