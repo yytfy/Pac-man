@@ -50,7 +50,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Pac-man::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Pac-man-Debug-276c2c5049bb28d80fd0.json",
+					"jsonFile" : "target-Pac-man-Debug-3c63b7b7095327f08830.json",
 					"name" : "Pac-man",
 					"projectIndex" : 0
 				},
@@ -112,7 +112,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Pac-man::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Pac-man-Release-4c6ad54ac0f16d9e2173.json",
+					"jsonFile" : "target-Pac-man-Release-721e106d5e508b337d42.json",
 					"name" : "Pac-man",
 					"projectIndex" : 0
 				},
@@ -174,7 +174,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Pac-man::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Pac-man-MinSizeRel-0dd951cfa79ba8232129.json",
+					"jsonFile" : "target-Pac-man-MinSizeRel-a70d93f6167e2cabbefa.json",
 					"name" : "Pac-man",
 					"projectIndex" : 0
 				},
@@ -236,7 +236,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Pac-man::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Pac-man-RelWithDebInfo-89a2931e086783da26ba.json",
+					"jsonFile" : "target-Pac-man-RelWithDebInfo-e287855865a5b26d2a0e.json",
 					"name" : "Pac-man",
 					"projectIndex" : 0
 				},

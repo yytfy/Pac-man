@@ -21,6 +21,9 @@
     <ClInclude Include="C:\Users\51465\Desktop\Project\Pac-man\include\food.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="C:\Users\51465\Desktop\Project\Pac-man\include\game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="C:\Users\51465\Desktop\Project\Pac-man\include\map.h">
       <Filter>Header Files</Filter>
     </ClInclude>

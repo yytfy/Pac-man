@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "MinSizeRel/Pac-man.exe"
+			"path" : "Debug/Pac-man.exe"
 		},
 		{
-			"path" : "MinSizeRel/Pac-man.pdb"
+			"path" : "Debug/Pac-man.pdb"
 		}
 	],
 	"backtrace" : 2,
@@ -53,7 +53,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O1 /Ob1 /DNDEBUG"
+					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1"
 				}
 			],
 			"includes" : 
@@ -67,11 +67,11 @@
 			"language" : "CXX",
 			"sourceIndexes" : 
 			[
-				4,
 				5,
 				6,
 				7,
-				8
+				8,
+				9
 			]
 		}
 	],
@@ -87,16 +87,16 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O1 /Ob1 /DNDEBUG",
+				"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1",
 				"role" : "flags"
 			},
 			{
-				"fragment" : "/machine:x64 /INCREMENTAL:NO /subsystem:console",
+				"fragment" : "/machine:x64 /debug /INCREMENTAL /subsystem:console",
 				"role" : "flags"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\tool\\vcpkg\\vcpkg-2021.05.12\\installed\\x64-windows\\lib\\freeglut.lib",
+				"fragment" : "C:\\tool\\vcpkg\\vcpkg-2021.05.12\\installed\\x64-windows\\debug\\lib\\freeglutd.lib",
 				"role" : "libraries"
 			},
 			{
@@ -122,18 +122,19 @@
 				0,
 				1,
 				2,
-				3
+				3,
+				4
 			]
 		},
 		{
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				4,
 				5,
 				6,
 				7,
-				8
+				8,
+				9
 			]
 		}
 	],
@@ -142,6 +143,11 @@
 		{
 			"backtrace" : 2,
 			"path" : "include/food.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "include/game.h",
 			"sourceGroupIndex" : 0
 		},
 		{

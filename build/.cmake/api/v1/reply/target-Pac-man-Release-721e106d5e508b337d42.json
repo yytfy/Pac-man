@@ -67,11 +67,11 @@
 			"language" : "CXX",
 			"sourceIndexes" : 
 			[
-				4,
 				5,
 				6,
 				7,
-				8
+				8,
+				9
 			]
 		}
 	],
@@ -122,18 +122,19 @@
 				0,
 				1,
 				2,
-				3
+				3,
+				4
 			]
 		},
 		{
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				4,
 				5,
 				6,
 				7,
-				8
+				8,
+				9
 			]
 		}
 	],
@@ -142,6 +143,11 @@
 		{
 			"backtrace" : 2,
 			"path" : "include/food.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "include/game.h",
 			"sourceGroupIndex" : 0
 		},
 		{
