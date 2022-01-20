@@ -1,6 +1,13 @@
-
+#include<utility>
 
 class pca_man{
+public:
+
+    pca_man(int x, int y, int r) : pos({x, y}), rotation(r) { }
+
+
+    void draw();
+
 
 
 private:
@@ -12,6 +19,9 @@ private:
     *   2  为向上;
     *   3  为向下;
     */
-    int direction;
-
+    float rotation;
+    /*
+    *   角色位置
+    */
+    std::pair<int, int> pos;
 };

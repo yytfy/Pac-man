@@ -999,10 +999,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "The CMake toolchain file"
+					"value" : "No help, variable specified on the command line."
 				}
 			],
-			"type" : "FILEPATH",
+			"type" : "STRING",
 			"value" : "C:/tool/vcpkg/vcpkg-2021.05.12/scripts/buildsystems/vcpkg.cmake"
 		},
 		{

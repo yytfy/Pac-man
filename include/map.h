@@ -1,3 +1,11 @@
+#include"player.h"
+#include"monster.h"
+#include"food.h"
+#include"game.h"
+#include<vector>
+
+using std::vector;
+
 class map{
 public:
 
@@ -12,10 +20,11 @@ private:
 
 class block{
 public:
-    block() : reachable(false) {}
-    block(int size) : blockSize(size), reachable(false) {}
-    block(int size, bool reach) : blockSize(size), reachable(reach) {}
-
+    block(int size = blockSize) : blockSize(size), reachable(false) {}
+    block(int size = blockSize, bool reach) : blockSize(size), reachable(reach) {}
+    bool reach() const { return reachable; }
+    void setReach(bool r) { reachable = r; }
+    void draw();
 
 private:
     int blockSize;
