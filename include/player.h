@@ -1,3 +1,5 @@
+#ifndef _PCAMAN_
+#define _PCAMAN_
 #include<utility>
 
 class pca_man{
@@ -25,3 +27,4 @@ private:
     */
     std::pair<int, int> pos;
 };
+#endif

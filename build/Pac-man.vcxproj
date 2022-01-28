@@ -361,6 +361,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="C:\Users\51465\Desktop\Project\Pac-man\include\block.h" />
     <ClInclude Include="C:\Users\51465\Desktop\Project\Pac-man\include\control.h" />
     <ClInclude Include="C:\Users\51465\Desktop\Project\Pac-man\include\display.h" />
     <ClInclude Include="C:\Users\51465\Desktop\Project\Pac-man\include\food.h" />
@@ -370,6 +371,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="C:\Users\51465\Desktop\Project\Pac-man\include\monster.h" />
     <ClInclude Include="C:\Users\51465\Desktop\Project\Pac-man\include\player.h" />
     <ClCompile Include="C:\Users\51465\Desktop\Project\Pac-man\src\Pac-man.cpp" />
+    <ClCompile Include="C:\Users\51465\Desktop\Project\Pac-man\src\block.cpp" />
     <ClCompile Include="C:\Users\51465\Desktop\Project\Pac-man\src\control.cpp" />
     <ClCompile Include="C:\Users\51465\Desktop\Project\Pac-man\src\display.cpp" />
     <ClCompile Include="C:\Users\51465\Desktop\Project\Pac-man\src\food.cpp" />

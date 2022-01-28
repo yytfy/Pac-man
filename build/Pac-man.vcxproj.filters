@@ -4,6 +4,9 @@
     <ClCompile Include="C:\Users\51465\Desktop\Project\Pac-man\src\Pac-man.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\51465\Desktop\Project\Pac-man\src\block.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\51465\Desktop\Project\Pac-man\src\control.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -27,6 +30,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="C:\Users\51465\Desktop\Project\Pac-man\include\block.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="C:\Users\51465\Desktop\Project\Pac-man\include\control.h">
       <Filter>Header Files</Filter>
     </ClInclude>

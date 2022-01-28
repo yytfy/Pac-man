@@ -1,10 +1,11 @@
 #ifndef _GAME_
 #define _GAME_
 #include<gl/glut.h>
+#include<gl/GL.h>
 #include<string>
+#include"map.h"
 
 #include<vector>
-
 
 
 extern unsigned short gameState;
@@ -21,7 +22,10 @@ extern std::vector<bool> keyStates;
 */
 extern int mainMenuSelect;
 extern std::vector<std::string> items;
-
+/*
+*	Game
+*/
+extern map* curMap;
 
 
 

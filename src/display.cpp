@@ -11,7 +11,7 @@ void mainMenuDisplay() {
     string message = "Pac-man";
 	auto it = message.begin();
     glColor3f(1.0f, 1.0f, 1.0f);
-    glRasterPos2f(340, 200);
+    glRasterPos2f(600, 200);
     while (it!=message.end()) glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, *it++);
     for(int i=0; i<items.size(); ++i) {
         if(i == mainMenuSelect) {
@@ -20,11 +20,16 @@ void mainMenuDisplay() {
             glColor3f(1.0f, 1.0f, 1.0f);
         }
         
-        glRasterPos2f(340, 300+i*50);
+        glRasterPos2f(600, 300+i*50);
         message = items[i];
         it = message.begin();
         while (it!=message.end()) glutBitmapCharacter(GLUT_BITMAP_9_BY_15, *it++);
     }
+}
+
+void gameDisplay() {
+    glClearColor(0, 0, 0, 1.0);
+    curMap->draw();
 }
 
 

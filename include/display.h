@@ -2,7 +2,7 @@
 #define _DISPLAY_
 
 void mainMenuDisplay();
-void mainMenu();
+void gameDisplay();
 
 
 #endif

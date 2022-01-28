@@ -1,34 +1,27 @@
+#ifndef _MAP_
+#define _MAP_
 #include"player.h"
 #include"monster.h"
-#include"food.h"
-#include"game.h"
+#include"block.h"
 #include<vector>
 
 using std::vector;
 
 class map{
 public:
+    map(unsigned short len, unsigned short wid, unsigned short bs, unsigned short l = 0);
 
+    void draw();
 
 
 
 private:
     vector<vector<block>> blocks;
+    unsigned short length;
+    unsigned short width;
+    unsigned short level;
 
 
-};
-
-class block{
-public:
-    block(int size = blockSize) : blockSize(size), reachable(false) {}
-    block(int size = blockSize, bool reach) : blockSize(size), reachable(reach) {}
-    bool reach() const { return reachable; }
-    void setReach(bool r) { reachable = r; }
-    void draw();
-
-private:
-    int blockSize;
-    bool reachable;
-    food* f;
 
 };
+#endif
