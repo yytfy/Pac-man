@@ -10,25 +10,25 @@
 using namespace std;
 
 /*
-*	窗口
+*	window size
 */
 unsigned short winWidth = 1280;
 unsigned short winHeight = 720;
 /*
-*	游戏状态
-*	0 : 开始菜单
-*	1 : 游戏开始
-*	2 : 游戏暂停
-*	3 : 游戏结束
-*	4 : 游戏退出
+*	game state
+*	0 : main menu
+*	1 : game running
+*	2 : game pause
+*	3 : game over
+*	4 : exit
 */
 unsigned short gameState = 0;
 /*
-*	键盘状态	
+*	key state	
 */
 vector<bool> keyStates(256,0);
 /*
-*	地图
+*	map
 */
 unsigned short mapLength = 27;
 unsigned short mapWidth = 21;
@@ -44,7 +44,8 @@ vector<string> items = {"Game Start", "Quit"};
 *	Game
 */
 map* curMap;
-
+pair<float, float> initPos = {20.5, 10.5};
+unsigned short initLives = 3;
 
 
 int main(int argc, char** argv) {

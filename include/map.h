@@ -4,13 +4,15 @@
 #include"monster.h"
 #include"block.h"
 #include<vector>
+#include<memory>
 
-using std::vector;
+using namespace std;
 
 class map{
 public:
-    map(unsigned short len, unsigned short wid, unsigned short bs, unsigned short l = 0);
+    map(unsigned short len, unsigned short wid, unsigned short bs, pair<float, float> pos, unsigned short lives, unsigned short l = 0);
 
+    unique_ptr<pca_man> character;
     void draw();
 
 
@@ -20,6 +22,8 @@ private:
     unsigned short length;
     unsigned short width;
     unsigned short level;
+    unsigned int curPoint;
+    
 
 
 

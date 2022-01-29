@@ -7,6 +7,7 @@
 
 #include<vector>
 
+using namespace std;
 
 extern unsigned short gameState;
 extern unsigned short mapLength;
@@ -26,6 +27,8 @@ extern std::vector<std::string> items;
 *	Game
 */
 extern map* curMap;
+extern pair<float, float> initPos;
+extern unsigned short initLives;
 
 
 

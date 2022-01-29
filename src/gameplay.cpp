@@ -25,8 +25,6 @@ void display() {
         exit(0);
     }
 
-
-
     
     glutSwapBuffers();
 }
@@ -36,7 +34,7 @@ void reshape(int w, int h) {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
-	glOrtho(0, winWidth, winHeight, 0, -1.0, 1.0);
+    gluOrtho2D(0, winWidth, winHeight, 0);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 }
@@ -56,11 +54,15 @@ void mainMenu() {
 
 void initGame(){
     if(curMap != nullptr) delete curMap;
-    curMap = new map(mapLength, mapWidth, blockSize);
+    curMap = new map(mapLength, mapWidth, blockSize, initPos, initLives);
 
 }
 
 void game() {
+    if(keyStates['w']) curMap->character->setRotation(-1);
+    else if(keyStates['s']) curMap->character->setRotation(1);
+    else if(keyStates['a']) curMap->character->setRotation(2);
+    else if(keyStates['d']) curMap->character->setRotation(0);
 
 
 }

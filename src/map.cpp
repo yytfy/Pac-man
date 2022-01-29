@@ -1,7 +1,7 @@
 #include"../include/map.h"
 
-map::map(unsigned short len, unsigned short wid, unsigned short bs, unsigned short l) 
-    :   length(len), width(wid), level(l), blocks({len, vector<block>(wid, bs)})
+map::map(unsigned short len, unsigned short wid, unsigned short bs, pair<float, float> pos, unsigned short lives, unsigned short l) 
+    :   length(len), width(wid), level(l), blocks({len, vector<block>(wid, bs)}), character(new pca_man({(pos.first+1)*bs, (pos.second+10)*bs}, lives))
 {
     /* map init */
     for(auto& b : blocks[0]) b.setReach(false);
@@ -98,6 +98,7 @@ void map::draw() {
             blocks[i][j].draw(10 + j, i + 1);
         }
     }
+    character->draw();
 }
 
 

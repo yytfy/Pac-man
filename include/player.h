@@ -2,29 +2,35 @@
 #define _PCAMAN_
 #include<utility>
 
+using namespace std;
+
 class pca_man{
 public:
 
-    pca_man(int x, int y, int r) : pos({x, y}), rotation(r) { }
+    pca_man(pair<float, float> p, unsigned short l) : pos(p), lives(l), rotation(0) { }
 
 
     void draw();
-
+    void setRotation(float r) { rotation = r; }
 
 
 private:
     /*
-    *   角色的移动方向:
+    *   move direction:
     *   -1 为初始状态原地不动;
-    *   0  为向做;
-    *   1  为向右;
-    *   2  为向上;
-    *   3  为向下;
+    *   0  left;
+    *   1  right;
+    *   2  top;
+    *   3  buttom;
     */
     float rotation;
     /*
-    *   角色位置
+    *   position
     */
-    std::pair<int, int> pos;
+    std::pair<float, float> pos;
+    float speed;
+    unsigned short lives;
+
+
 };
 #endif
