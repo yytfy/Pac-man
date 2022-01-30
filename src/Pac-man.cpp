@@ -43,6 +43,7 @@ vector<string> items = {"Game Start", "Quit"};
 /*
 *	Game
 */
+clock_t gameTime = 0;
 map* curMap;
 pair<float, float> initPos = {20.5, 10.5};
 unsigned short initLives = 3;

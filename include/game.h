@@ -4,7 +4,7 @@
 #include<gl/GL.h>
 #include<string>
 #include"map.h"
-
+#include<ctime>
 #include<vector>
 
 using namespace std;
@@ -26,6 +26,7 @@ extern std::vector<std::string> items;
 /*
 *	Game
 */
+extern clock_t gameTime;
 extern map* curMap;
 extern pair<float, float> initPos;
 extern unsigned short initLives;

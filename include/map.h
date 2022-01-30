@@ -12,8 +12,9 @@ class map{
 public:
     map(unsigned short len, unsigned short wid, unsigned short bs, pair<float, float> pos, unsigned short lives, unsigned short l = 0);
 
-    unique_ptr<pca_man> character;
+    unique_ptr<pca_man> player;
     void draw();
+    bool reach(int x, int y) { return blocks[x][y].reach(); }
 
 
 

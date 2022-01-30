@@ -1,5 +1,6 @@
 #ifndef _GAMEPLAY_
 #define _GAMEPLAY_
+#include<ctime>
 
 extern int mainMenuSelect;
 
@@ -8,6 +9,7 @@ void reshape(int w, int h);
 
 void mainMenu();
 void initGame();
-void game();
+void game(double t);
+void playerControl(double t);
 
 #endif

@@ -9,7 +9,9 @@
             "type": "cppvsdbg",
             "request": "launch",
             "program": "${fileDirname}\\../build/debug/${fileBasenameNoExtension}.exe",
-            "args": [],
+            "args": [
+                "/source-charset:utf-8"
+            ],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
