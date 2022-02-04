@@ -1,9 +1,9 @@
 #include"../include/map.h"
 
 map::map(unsigned short len, unsigned short wid, unsigned short bs, pair<float, float> pos, unsigned short lives, unsigned short l) 
-    :   length(len), width(wid), level(l), blocks({len, vector<block>(wid, bs)}), player(new pca_man({(pos.first+1)*bs, (pos.second+10)*bs}, lives))
+    :   length(len), width(wid), level(l), blocks({len, vector<block>(wid, bs)}), player(new pca_man({(pos.first+1)*bs, (pos.second+10)*bs}, lives)), curPoint(0)
 {
-    /* map init */
+    /* block init */
     for(auto& b : blocks[0]) b.setReach(false);
     for(auto& b : blocks[26]) b.setReach(false);
     for(int i=1; i<=8; ++i) {
@@ -90,6 +90,73 @@ map::map(unsigned short len, unsigned short wid, unsigned short bs, pair<float, 
     blocks[11][9].setReach(false);
     blocks[11][11].setReach(false);
 
+    /* food init */
+    for(int i=0; i<19; ++i) {
+        blocks[5][1+i].setFood(new food(1));
+        blocks[25][1+i].setFood(new food(1));
+    }
+    for(int i=0; i<12; ++i) {
+        blocks[6+i][5].setFood(new food(1));
+        blocks[6+i][15].setFood(new food(1));
+    }
+    for(int i=0; i<9; ++i) {
+        blocks[1][1+i].setFood(new food(1));
+        blocks[1][11+i].setFood(new food(1));
+        blocks[18][1+i].setFood(new food(1));
+        blocks[18][11+i].setFood(new food(1));
+    }
+    for(int i=0; i<5; ++i) {
+        blocks[19+i][5].setFood(new food(1));
+        blocks[19+i][15].setFood(new food(1));
+    }
+    for(int i=0; i<4; ++i) {
+        blocks[20][6+i].setFood(new food(1));
+        blocks[20][11+i].setFood(new food(1));
+        blocks[23][1+i].setFood(new food(1));
+        blocks[23][16+i].setFood(new food(1));
+    }
+    for(int i=0; i<3; ++i) {
+        blocks[2+i][5].setFood(new food(1));
+        blocks[2+i][9].setFood(new food(1));
+        blocks[2+i][11].setFood(new food(1));
+        blocks[2+i][15].setFood(new food(1));
+        blocks[6+i][1].setFood(new food(1));
+        blocks[6+i][7].setFood(new food(1));
+        blocks[6+i][13].setFood(new food(1));
+        blocks[6+i][19].setFood(new food(1));
+        blocks[8][2+i].setFood(new food(1));
+        blocks[8][16+i].setFood(new food(1));
+        blocks[21+i][7].setFood(new food(1));
+        blocks[21+i][13].setFood(new food(1));
+        blocks[20+i][3].setFood(new food(1));
+        blocks[20+i][17].setFood(new food(1));
+    }
+    for(int i=0; i<2; ++i) {
+        blocks[8][8+i].setFood(new food(1));
+        blocks[8][11+i].setFood(new food(1));
+        blocks[23][8+i].setFood(new food(1));
+        blocks[23][11+i].setFood(new food(1));
+    }
+    blocks[2][1].setFood(new food(1));
+    blocks[4][1].setFood(new food(1));
+    blocks[2][19].setFood(new food(1));
+    blocks[4][19].setFood(new food(1));
+    blocks[19][9].setFood(new food(1));
+    blocks[19][11].setFood(new food(1));
+    blocks[19][1].setFood(new food(1));
+    blocks[19][19].setFood(new food(1));
+    blocks[20][2].setFood(new food(1));
+    blocks[20][18].setFood(new food(1));
+    blocks[24][1].setFood(new food(1));
+    blocks[24][19].setFood(new food(1));
+    blocks[24][9].setFood(new food(1));
+    blocks[24][11].setFood(new food(1));
+    blocks[3][1].setFood(new food(2));
+    blocks[3][19].setFood(new food(2));
+    blocks[20][1].setFood(new food(2));
+    blocks[20][19].setFood(new food(2));
+
+
 }
 
 void map::draw() {
@@ -99,6 +166,20 @@ void map::draw() {
         }
     }
     player->draw();
+    drawPoint();
+}
+
+void map::drawPoint() {
+    glColor3f(1.0f, 0.0f, 0.0f);
+    int p = curPoint;
+    for(int i=0; i<7; ++i) {
+        glRasterPos2f(930-25*i, 100);
+        char num = p % 10 + '0';
+        p /= 10;
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, num);
+    }
+    
+
 }
 
 

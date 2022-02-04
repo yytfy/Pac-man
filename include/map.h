@@ -5,6 +5,7 @@
 #include"block.h"
 #include<vector>
 #include<memory>
+#include"gl/glut.h"
 
 using namespace std;
 
@@ -24,9 +25,7 @@ private:
     unsigned short width;
     unsigned short level;
     unsigned int curPoint;
-    
-
-
+    void drawPoint();
 
 };
 #endif
