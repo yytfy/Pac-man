@@ -63,7 +63,9 @@ void initGame(){
 }
 
 void game(double t) {
+    if(curMap->checkState() == 1) return;
     playerControl(t);
+    curMap->gameplay(t);
     
 
 

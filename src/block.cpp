@@ -5,5 +5,4 @@ void block::draw(int x, int y) {
         glColor3f(0.0f, 0.0f, 1.0f);
         glRectf(x * bs, y * bs, (x + 1) * bs, (y + 1) * bs);
     }
-    if(f) f->draw(x, y, bs);
 }

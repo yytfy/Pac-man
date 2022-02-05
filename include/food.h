@@ -1,9 +1,14 @@
 #include"gl/glut.h"
+#include<utility>
+
+using namespace std;
 
 class food{
 public:
-    food(USHORT t=1);
-    void draw(int x, int y, USHORT blockSize);
+    food(int x, int y, USHORT blockSize, USHORT t=1);
+    void draw();
+    USHORT getPoint() const { return point; }
+    const pair<int, int>& getPos() const { return pos; }
 
 private:
     /*
@@ -13,4 +18,5 @@ private:
     */
     unsigned short type;
     unsigned short point;
+    pair<int, int> pos;
 };

@@ -7,19 +7,16 @@
 
 class block{
 public:
-    block(int size) : bs(size), reachable(true), f(nullptr) {}
-    block(bool reach, int size) : bs(size), reachable(reach), f(nullptr) {}
+    block(int size) : bs(size), reachable(true) {}
+    block(bool reach, int size) : bs(size), reachable(reach) {}
     bool reach() const { return reachable; }
     void setReach(bool r) { reachable = r; }
-    food* getFood() { return f; }
-    void setFood(food* ff) { f = ff;}
     USHORT getSize() { return bs; }
     void draw(int, int);
 
 private:
     USHORT bs;
     bool reachable;
-    food* f;
 
 };
 #endif
