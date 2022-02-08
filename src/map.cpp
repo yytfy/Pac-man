@@ -1,7 +1,7 @@
 #include"../include/map.h"
 
 map::map(unsigned short len, unsigned short wid, unsigned short bs, pair<float, float> pos, unsigned short lives, unsigned short l) 
-    :   length(len), width(wid), level(l), blocks({len, vector<block>(wid, bs)}), player(new pca_man({(pos.first+1)*bs, (pos.second+10)*bs}, lives)), curPoint(0), foods()
+    :   length(len), width(wid), level(l), blocks({len, vector<block>(wid, bs)}), player(new pca_man({(pos.first+1)*bs, (pos.second+10)*bs}, lives)), curPoint(0), foods(), monsters()
 {
     /* block init */
     for(auto& b : blocks[0]) b.setReach(false);
@@ -92,80 +92,84 @@ map::map(unsigned short len, unsigned short wid, unsigned short bs, pair<float, 
 
     /* food init */
     for(int i=0; i<19; ++i) {
-        foods.push_back(food(5+1, 1+i+10, bs));
-        foods.push_back(food(25+1, 1+i+10, bs));
+        foods.emplace_back(5+1, 1+i+10, bs);
+        foods.emplace_back(25+1, 1+i+10, bs);
     }
     for(int i=0; i<12; ++i) {
-        foods.push_back(food(6+i+1, 5+10, bs));
-        foods.push_back(food(6+i+1, 15+10, bs));
+        foods.emplace_back(6+i+1, 5+10, bs);
+        foods.emplace_back(6+i+1, 15+10, bs);
     }
     for(int i=0; i<9; ++i) {
-        foods.push_back(food(1+1, 1+i+10, bs));
-        foods.push_back(food(1+1, 11+i+10, bs));
-        foods.push_back(food(18+1, 1+i+10, bs));
-        foods.push_back(food(18+1, 11+i+10, bs));
+        foods.emplace_back(1+1, 1+i+10, bs);
+        foods.emplace_back(1+1, 11+i+10, bs);
+        foods.emplace_back(18+1, 1+i+10, bs);
+        foods.emplace_back(18+1, 11+i+10, bs);
     }
     for(int i=0; i<5; ++i) {
-        foods.push_back(food(19+i+1, 5+10, bs));
-        foods.push_back(food(19+i+1, 15+10, bs));
+        foods.emplace_back(19+i+1, 5+10, bs);
+        foods.emplace_back(19+i+1, 15+10, bs);
     }
     for(int i=0; i<4; ++i) {
-        foods.push_back(food(20+1, 6+i+10, bs));
-        foods.push_back(food(20+1, 11+i+10, bs));
-        foods.push_back(food(23+1, 1+i+10, bs));
-        foods.push_back(food(23+1, 16+i+10, bs));
+        foods.emplace_back(20+1, 6+i+10, bs);
+        foods.emplace_back(20+1, 11+i+10, bs);
+        foods.emplace_back(23+1, 1+i+10, bs);
+        foods.emplace_back(23+1, 16+i+10, bs);
     }
     for(int i=0; i<3; ++i) {
-        foods.push_back(food(2+i+1, 5+10, bs));
-        foods.push_back(food(2+i+1, 9+10, bs));
-        foods.push_back(food(2+i+1, 11+10, bs));
-        foods.push_back(food(2+i+1, 15+10, bs));
-        foods.push_back(food(6+i+1, 1+10, bs));
-        foods.push_back(food(6+i+1, 7+10, bs));
-        foods.push_back(food(6+i+1, 13+10, bs));
-        foods.push_back(food(6+i+1, 19+10, bs));
-        foods.push_back(food(8+1, 2+i+10, bs));
-        foods.push_back(food(8+1, 16+i+10, bs));
-        foods.push_back(food(21+i+1, 7+10, bs));
-        foods.push_back(food(21+i+1, 13+10, bs));
-        foods.push_back(food(20+i+1, 3+10, bs));
-        foods.push_back(food(20+i+1, 17+10, bs));
+        foods.emplace_back(2+i+1, 5+10, bs);
+        foods.emplace_back(2+i+1, 9+10, bs);
+        foods.emplace_back(2+i+1, 11+10, bs);
+        foods.emplace_back(2+i+1, 15+10, bs);
+        foods.emplace_back(6+i+1, 1+10, bs);
+        foods.emplace_back(6+i+1, 7+10, bs);
+        foods.emplace_back(6+i+1, 13+10, bs);
+        foods.emplace_back(6+i+1, 19+10, bs);
+        foods.emplace_back(8+1, 2+i+10, bs);
+        foods.emplace_back(8+1, 16+i+10, bs);
+        foods.emplace_back(21+i+1, 7+10, bs);
+        foods.emplace_back(21+i+1, 13+10, bs);
+        foods.emplace_back(20+i+1, 3+10, bs);
+        foods.emplace_back(20+i+1, 17+10, bs);
     }
     for(int i=0; i<2; ++i) {
-        foods.push_back(food(8+1, 8+i+10, bs));
-        foods.push_back(food(8+1, 11+i+10, bs));
-        foods.push_back(food(23+1, 8+i+10, bs));
-        foods.push_back(food(23+1, 11+i+10, bs));
+        foods.emplace_back(8+1, 8+i+10, bs);
+        foods.emplace_back(8+1, 11+i+10, bs);
+        foods.emplace_back(23+1, 8+i+10, bs);
+        foods.emplace_back(23+1, 11+i+10, bs);
     }
-    foods.push_back(food(2+1, 1+10, bs));
-    foods.push_back(food(4+1, 1+10, bs));
-    foods.push_back(food(2+1, 19+10, bs));
-    foods.push_back(food(4+1, 19+10, bs));
-    foods.push_back(food(19+1, 9+10, bs));
-    foods.push_back(food(19+1, 11+10, bs));
-    foods.push_back(food(19+1, 1+10, bs));
-    foods.push_back(food(19+1, 19+10, bs));
-    foods.push_back(food(20+1, 2+10, bs));
-    foods.push_back(food(20+1, 18+10, bs));
-    foods.push_back(food(24+1, 1+10, bs));
-    foods.push_back(food(24+1, 19+10, bs));
-    foods.push_back(food(24+1, 9+10, bs));
-    foods.push_back(food(24+1, 11+10, bs));
-    foods.push_back(food(3+1, 1+10, bs, 2));
-    foods.push_back(food(3+1, 19+10, bs, 2));
-    foods.push_back(food(20+1, 1+10, bs, 2));
-    foods.push_back(food(20+1, 19+10, bs, 2));
+    foods.emplace_back(2+1, 1+10, bs);
+    foods.emplace_back(4+1, 1+10, bs);
+    foods.emplace_back(2+1, 19+10, bs);
+    foods.emplace_back(4+1, 19+10, bs);
+    foods.emplace_back(19+1, 9+10, bs);
+    foods.emplace_back(19+1, 11+10, bs);
+    foods.emplace_back(19+1, 1+10, bs);
+    foods.emplace_back(19+1, 19+10, bs);
+    foods.emplace_back(20+1, 2+10, bs);
+    foods.emplace_back(20+1, 18+10, bs);
+    foods.emplace_back(24+1, 1+10, bs);
+    foods.emplace_back(24+1, 19+10, bs);
+    foods.emplace_back(24+1, 9+10, bs);
+    foods.emplace_back(24+1, 11+10, bs);
+    foods.emplace_back(3+1, 1+10, bs, 2);
+    foods.emplace_back(3+1, 19+10, bs, 2);
+    foods.emplace_back(20+1, 1+10, bs, 2);
+    foods.emplace_back(20+1, 19+10, bs, 2);
 
-
+    /* monster init */
+    monsters.emplace_back(pair<float,float>({(10+1.5)*bs, (10+10.5)*bs}), 75, 0);
 }
 
 void map::draw() {
+    glEnable(GL_POINT_SMOOTH);
+    glHint(GL_POINT_SMOOTH_HINT,GL_NICEST);
     for(int i=0; i<length; ++i) {
         for(int j=0; j<width; ++j) {
             blocks[i][j].draw(10 + j, i + 1);
         }
     }
     for(auto f : foods) f.draw();
+    for(auto m : monsters) m.draw();
     player->draw();
     drawPoint();
 }

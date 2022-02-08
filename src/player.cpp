@@ -1,8 +1,5 @@
 #include"../include/player.h"
-#include <windows.h>
-#include<gl/GL.h>
-#define _USE_MATH_DEFINES
-#include<math.h>
+
 
 float initSpeed = 125;
 

@@ -1,6 +1,10 @@
 #ifndef _PCAMAN_
 #define _PCAMAN_
 #include<utility>
+#include <windows.h>
+#include<gl/GL.h>
+#define _USE_MATH_DEFINES
+#include<math.h>
 
 using namespace std;
 
@@ -11,9 +15,9 @@ public:
 
     pca_man(pair<float, float> p, unsigned short l) : pos(p), lives(l), rotation(0), speed(initSpeed) { }
 
-
-    void draw();
     void setRotation(float r) { rotation = r; }
+    void draw();
+    
     std::pair<float, float> pos;
     float speed;
 

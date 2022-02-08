@@ -29,10 +29,17 @@ public:
 private:
     vector<vector<block>> blocks;
     vector<food> foods;
+    vector<monster> monsters;
     unsigned short length;
     unsigned short width;
     unsigned short level;
     unsigned int curPoint;
+    /*
+        0: chase mode
+        1: scatter mode
+        2: frighten mode
+    */
+    USHORT gostMode;
     void drawPoint();
 
 };
