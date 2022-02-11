@@ -1,8 +1,9 @@
 #include"../include/map.h"
+#include<iostream>
 
 map::map(unsigned short len, unsigned short wid, unsigned short bs, pair<float, float> pos, unsigned short lives, unsigned short l) 
     :   length(len), width(wid), level(l), blocks({len, vector<block>(wid, bs)}), player(new pca_man({(pos.first+1)*bs, (pos.second+10)*bs}, lives)),
-    curPoint(0), foods(), monsters(), blockSize(bs)
+    curPoint(0), foods(), gosts(), blockSize(bs), gostMode(1)
 {
     /* block init */
     for(auto& b : blocks[0]) b.setReach(false);
@@ -159,8 +160,8 @@ map::map(unsigned short len, unsigned short wid, unsigned short bs, pair<float, 
     foods.emplace_back(20+1, 1+10, bs, 2);
     foods.emplace_back(20+1, 19+10, bs, 2);
 
-    /* monster init */
-    monsters.emplace_back(pair<float,float>({(10+1.5)*bs, (10+10.5)*bs}), 75, 0);
+    /* gost init */
+    gosts.emplace_back(pair<float,float>({(10+1.5)*bs, (10+10.5)*bs}), 75, 0);
 }
 
 void map::draw() {
@@ -172,7 +173,7 @@ void map::draw() {
         }
     }
     for(auto f : foods) f.draw();
-    for(auto m : monsters) m.draw();
+    for(auto g : gosts) g.draw();
     player->draw();
     drawPoint();
 }
@@ -211,10 +212,59 @@ void map::gameplay(double t) {
             break;
         }
     }
-    for(auto m : monsters) {
-        pathFinder.searchNextPos(m.pos.first / blockSize - 1.5, m.pos.second / blockSize - 10, player->pos.first / blockSize - 1, player->pos.second / blockSize - 10);
+    USHORT px = player->pos.first / blockSize - 1.5, py = player->pos.second / blockSize - 10.5;
+    BlinkyAction(t, px, py);
+
+}
+
+void map::BlinkyAction(double t, USHORT px, USHORT py) {
+    USHORT x = gosts[0].pos.first / blockSize - 1.5, y = gosts[0].pos.second / blockSize - 10.5;
+    if(gostMode == 1) {
+        bool hor = false, ver = false;
+        if(x-1 >= 0 && blocks[x-1][y].reach()) hor = true;
+        if(x+1 < blocks.size() && blocks[x+1][y].reach()) hor = true;
+        if(y-1 >= 0 && blocks[x][y-1].reach()) ver = true;
+        if(y+1 < blocks[0].size() && blocks[x][y+1].reach()) ver = true;
+        if(hor && ver) {
+            float rx = (x+1.5)*blockSize, ry = (y+10.5)*blockSize;
+            if(gosts[0].pos.first > rx - 8 && gosts[0].pos.first < rx + 8 && gosts[0].pos.second > ry - 8 && gosts[0].pos.second < ry + 8) {
+                pair<USHORT, USHORT> newPos = pathFinder.searchNextPos(x, y, px, py);
+                if(newPos.first < x) gosts[0].rotation = -1;
+                else if(newPos.first > x) gosts[0].rotation = 1;
+                else if(newPos.second < y) gosts[0].rotation = 2;
+                else gosts[0].rotation = 0;
+                std::cout << newPos.first << ' ' << newPos.second << std::endl;
+            }
+        }
+        if(gosts[0].rotation == -1) {
+            gosts[0].pos.first -= t * gosts[0].speed;
+            if(!reach(x-1, y) && gosts[0].pos.first < (1.5 + x) * blockSize) {
+                gosts[0].pos.first = (1.5 + x) * blockSize;
+            }
+        }
+        else if(gosts[0].rotation == 1) {
+            gosts[0].pos.first += t * gosts[0].speed;
+            if(!reach(x+1, y) && gosts[0].pos.first > (1.5 + x) * blockSize) {
+                gosts[0].pos.first = (1.5 + x) * blockSize;
+            }
+        }
+        else if(gosts[0].rotation == 2) {
+            gosts[0].pos.second -= t * gosts[0].speed;
+            if(!reach(x, y-1) && gosts[0].pos.second < (10.5 + y) * blockSize) {
+                gosts[0].pos.second = (10.5 + y) * blockSize;
+            }
+        }else if(gosts[0].rotation == 0) {
+            gosts[0].pos.second += t * gosts[0].speed;
+            if(!reach(x, y+1) && gosts[0].pos.second > (10.5 + y) * blockSize) {
+                gosts[0].pos.second = (10.5 + y) * blockSize;
+            }
+        }
+        
+
+
 
     }
+
 
 }
 

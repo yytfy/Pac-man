@@ -1,5 +1,5 @@
-#ifndef _MONSTER_
-#define _MONSTER_
+#ifndef _gost_
+#define _gost_
 #include<utility>
 #include <windows.h>
 #include<gl/GL.h>
@@ -8,18 +8,23 @@
 
 using namespace std;
 
-class monster{
+class gost{
 public:
-    monster(pair<float, float> p, float spd, USHORT n) : pos(p), rotation(0), speed(spd), No(n) { }
+    gost(pair<float, float> p, float spd, USHORT n) : pos(p), rotation(0), speed(spd), No(n) { }
 
-    void setRotation(float r) { rotation = r; }
     void draw();
     
     pair<float, float> pos;
     float speed;
-
-private:
+    /*
+        -1 : top
+        0  : right
+        1  : bottom
+        2  : left
+    */
     float rotation;
+private:
+    
     USHORT No;
 
 };

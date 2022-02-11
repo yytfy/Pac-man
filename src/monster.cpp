@@ -1,6 +1,6 @@
-#include"../include/monster.h"
+#include"../include/gost.h"
 
-void monster::draw() {
+void gost::draw() {
     int x, y;
 	glBegin(GL_LINES);
     if(No == 0) glColor3f(0.7, 0.0, 0.0);

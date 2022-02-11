@@ -1,7 +1,7 @@
 #ifndef _MAP_
 #define _MAP_
 #include"player.h"
-#include"monster.h"
+#include"gost.h"
 #include"block.h"
 #include<vector>
 #include<memory>
@@ -31,19 +31,20 @@ private:
     USHORT blockSize;
     vector<vector<block>> blocks;
     vector<food> foods;
-    vector<monster> monsters;
+    vector<gost> gosts;
     USHORT length;
     USHORT width;
     USHORT level;
     unsigned int curPoint;
     /*
-        0: chase mode
-        1: scatter mode
+        0: scatter mode
+        1: chase mode
         2: frighten mode
     */
     USHORT gostMode;
     AStarMap pathFinder;
     void drawPoint();
+    void BlinkyAction(double t, USHORT px, USHORT py);
 
 };
 #endif

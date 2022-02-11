@@ -14,7 +14,7 @@ private:
     /*
         food type
         1 : normal 10 point
-        2 : big    50 point, pca_man can be stronger for a while so that it can eat monsters.
+        2 : big    50 point, pca_man can be stronger for a while so that it can eat gosts.
     */
     unsigned short type;
     unsigned short point;

@@ -40,7 +40,7 @@ public:
             AStarPoint* minPoint = getMinPoint(openSet);
             if(minPoint->x == x2 && minPoint->y == y2) {
                 AStarPoint* curPoint = minPoint;
-                while(curPoint->pre && (curPoint->x != x1 || curPoint->y != y1)) {
+                while(curPoint->pre && (curPoint->pre->x != x1 || curPoint->pre->y != y1)) {
                     curPoint = curPoint->pre;
                 }
                 return {curPoint->x, curPoint->y};
