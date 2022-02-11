@@ -6,6 +6,7 @@
 #include<vector>
 #include<memory>
 #include"gl/glut.h"
+#include"tool.hpp"
 
 using namespace std;
 
@@ -27,12 +28,13 @@ public:
 
 
 private:
+    USHORT blockSize;
     vector<vector<block>> blocks;
     vector<food> foods;
     vector<monster> monsters;
-    unsigned short length;
-    unsigned short width;
-    unsigned short level;
+    USHORT length;
+    USHORT width;
+    USHORT level;
     unsigned int curPoint;
     /*
         0: chase mode
@@ -40,6 +42,7 @@ private:
         2: frighten mode
     */
     USHORT gostMode;
+    AStarMap pathFinder;
     void drawPoint();
 
 };

@@ -1,7 +1,8 @@
 #include"../include/map.h"
 
 map::map(unsigned short len, unsigned short wid, unsigned short bs, pair<float, float> pos, unsigned short lives, unsigned short l) 
-    :   length(len), width(wid), level(l), blocks({len, vector<block>(wid, bs)}), player(new pca_man({(pos.first+1)*bs, (pos.second+10)*bs}, lives)), curPoint(0), foods(), monsters()
+    :   length(len), width(wid), level(l), blocks({len, vector<block>(wid, bs)}), player(new pca_man({(pos.first+1)*bs, (pos.second+10)*bs}, lives)),
+    curPoint(0), foods(), monsters(), blockSize(bs)
 {
     /* block init */
     for(auto& b : blocks[0]) b.setReach(false);
@@ -89,6 +90,8 @@ map::map(unsigned short len, unsigned short wid, unsigned short bs, pair<float, 
     blocks[3][18].setReach(false);
     blocks[11][9].setReach(false);
     blocks[11][11].setReach(false);
+
+    pathFinder = AStarMap(blocks);
 
     /* food init */
     for(int i=0; i<19; ++i) {
@@ -208,5 +211,10 @@ void map::gameplay(double t) {
             break;
         }
     }
+    for(auto m : monsters) {
+        pathFinder.searchNextPos(m.pos.first / blockSize - 1.5, m.pos.second / blockSize - 10, player->pos.first / blockSize - 1, player->pos.second / blockSize - 10);
+
+    }
+
 }
 
