@@ -15,22 +15,22 @@ public:
 
     pca_man(pair<float, float> p, unsigned short l) : pos(p), lives(l), rotation(0), speed(initSpeed) { }
 
-    void setRotation(float r) { rotation = r; }
     void draw();
     
     std::pair<float, float> pos;
     float speed;
-
-private:
     /*
     *   move direction:
-    *   -1 为初始状态原地不动;
-    *   0  left;
-    *   1  right;
-    *   2  top;
-    *   3  buttom;
+    *   2  left;
+    *   0  right;
+    *   -1  top;
+    *   1  buttom;
+    *   init rotation : 0
     */
     float rotation;
+
+private:
+    
     /*
     *   position
     */

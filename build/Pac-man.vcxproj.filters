@@ -19,10 +19,10 @@
     <ClCompile Include="C:\Users\51465\Desktop\Project\Pac-man\src\gameplay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\51465\Desktop\Project\Pac-man\src\map.cpp">
+    <ClCompile Include="C:\Users\51465\Desktop\Project\Pac-man\src\gost.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\51465\Desktop\Project\Pac-man\src\monster.cpp">
+    <ClCompile Include="C:\Users\51465\Desktop\Project\Pac-man\src\map.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\51465\Desktop\Project\Pac-man\src\player.cpp">
@@ -48,10 +48,10 @@
     <ClInclude Include="C:\Users\51465\Desktop\Project\Pac-man\include\gameplay.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\51465\Desktop\Project\Pac-man\include\map.h">
+    <ClInclude Include="C:\Users\51465\Desktop\Project\Pac-man\include\gost.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\51465\Desktop\Project\Pac-man\include\monster.h">
+    <ClInclude Include="C:\Users\51465\Desktop\Project\Pac-man\include\map.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\51465\Desktop\Project\Pac-man\include\player.h">

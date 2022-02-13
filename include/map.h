@@ -44,7 +44,8 @@ private:
     USHORT gostMode;
     AStarMap pathFinder;
     void drawPoint();
-    void BlinkyAction(double t, USHORT px, USHORT py);
+    void BlinkyAction(double t, short px, short py);
+    void PinkyAction(double t, short px, short py);
 
 };
 #endif

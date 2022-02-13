@@ -80,7 +80,7 @@ void playerControl(double t) {
         if(!curMap->reach(x-1, y) && curMap->player->pos.first < (1.5 + x) * 25) {
             curMap->player->pos.first = (1.5 + x) * 25;
         }
-        curMap->player->setRotation(-1);
+        curMap->player->rotation = -1;
     }
     else if(keyStates['s'] && curMap->player->pos.second > (ry -8) && curMap->player->pos.second < (ry + 8)) {
         curMap->player->pos.second = ry;
@@ -88,7 +88,7 @@ void playerControl(double t) {
         if(!curMap->reach(x+1, y) && curMap->player->pos.first > (1.5 + x) * 25) {
             curMap->player->pos.first = (1.5 + x) * 25;
         }
-        curMap->player->setRotation(1);
+        curMap->player->rotation = 1;
     }
     else if(keyStates['a'] && curMap->player->pos.first > (rx -8) && curMap->player->pos.first < (rx + 8)) {
         curMap->player->pos.first = rx;
@@ -97,7 +97,7 @@ void playerControl(double t) {
         if(!curMap->reach(x, (y-1 + mapWidth) % mapWidth) && curMap->player->pos.second < (10.5 + y) * 25) {
             curMap->player->pos.second = (10.5 + y) * 25;
         }
-        curMap->player->setRotation(2);
+        curMap->player->rotation = 2;
     }
     else if(keyStates['d'] && curMap->player->pos.first > (rx -8) && curMap->player->pos.first < (rx + 8)) {
         curMap->player->pos.first = rx;
@@ -106,7 +106,7 @@ void playerControl(double t) {
         if(!curMap->reach(x, (y+1 + mapWidth) % mapWidth) && curMap->player->pos.second > (10.5 + y) * 25) {
             curMap->player->pos.second = (10.5 + y) * 25;
         }
-        curMap->player->setRotation(0);
+        curMap->player->rotation = 0;
     }
 }
 

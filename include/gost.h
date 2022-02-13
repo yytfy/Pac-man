@@ -10,7 +10,7 @@ using namespace std;
 
 class gost{
 public:
-    gost(pair<float, float> p, float spd, USHORT n) : pos(p), rotation(0), speed(spd), No(n) { }
+    gost(pair<float, float> p, pair<USHORT, USHORT> t, float spd, USHORT n) : pos(p), rotation(0), speed(spd), No(n), targetPos(t) { }
 
     void draw();
     
@@ -23,6 +23,7 @@ public:
         2  : left
     */
     float rotation;
+    pair<USHORT, USHORT> targetPos;
 private:
     
     USHORT No;
