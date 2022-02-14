@@ -34,6 +34,7 @@ public:
     }
 
     std::pair<USHORT, USHORT> searchNextPos(USHORT x1, USHORT y1, USHORT x2, USHORT y2) {
+        if(x1 == x2 && y1 == y2) return {x1, y1};
         reset();
         aMap[x1][y1].f = getEvaluate(x1, y1, x2, y2); 
         unordered_set<AStarPoint*> openSet{&aMap[x1][y1]}, closedSet;
@@ -63,7 +64,7 @@ public:
                     y1 += dy;
                 }while(!hor || !ver && (x1 >= 0 && x1 < aMap.size() && y1 >= 0 && y1 < aMap[0].size()));
                 x1 -= dx;
-                y1 -= dx;
+                y1 -= dy;
                 
                 return {x1, y1};
             }

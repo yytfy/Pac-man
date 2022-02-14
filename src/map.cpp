@@ -259,6 +259,7 @@ void map::BlinkyAction(double t, short px, short py) {
                 newPos = true;
             }
             else if(gosts[0].pos.second <= target) {
+                
                 gosts[0].pos.second = target;
                 newPos = true;
             }
@@ -276,10 +277,10 @@ void map::BlinkyAction(double t, short px, short py) {
                 newPos = true;
             }
         }
-        
         if(newPos) {
+            x = gosts[0].pos.first / blockSize - 1.5;
+            y = gosts[0].pos.second / blockSize - 10.5;
             gosts[0].targetPos = pathFinder.searchNextPos(x, y, px, py);
-            std::cout << gosts[0].targetPos.first << ' ' << gosts[0].targetPos.second << std::endl;
             if(gosts[0].targetPos.first < x) gosts[0].rotation = -1;
             else if(gosts[0].targetPos.first > x) gosts[0].rotation = 1;
             else if(gosts[0].targetPos.second < y) gosts[0].rotation = 2;
@@ -370,3 +371,7 @@ void map::PinkyAction(double t, short px, short py) {
         }
     }
 }
+
+
+
+
