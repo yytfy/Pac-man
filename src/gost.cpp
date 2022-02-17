@@ -3,8 +3,10 @@
 void gost::draw() {
     int x, y;
 	glBegin(GL_LINES);
-    if(No == 0) glColor3f(0.7, 0.0, 0.0);
-	else if(No == 1) glColor3f(1.0, 0.94, 0.96);
+    if(No == 0) glColor3f(0.545, 0.0, 0.0);
+	else if(No == 1) glColor3f(0.968, 0.811, 0.952);
+	else if(No == 2) glColor3f(0.117, 0.447, 1);
+	else if(No == 3) glColor3f(0.627, 0.321, 0.176);
     else glColor3f(0.7, 0.0, 0.0);
 	
 	//头

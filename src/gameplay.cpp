@@ -15,6 +15,7 @@ void display() {
 
     }else if(gameState == 1) {
         // 游戏进行或暂停
+        
         clock_t now = clock();
         double diff = (double)(now - gameTime) / CLOCKS_PER_SEC;
         game(diff);
@@ -63,9 +64,8 @@ void initGame(){
 }
 
 void game(double t) {
-    if(curMap->checkState() == 1) return;
-    playerControl(t);
     curMap->gameplay(t);
+    if(curMap->timeCnt >= 4 && !curMap->checkState()) playerControl(t);
     
 
 

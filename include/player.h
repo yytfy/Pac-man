@@ -28,6 +28,7 @@ public:
     *   init rotation : 0
     */
     float rotation;
+    short lives;
 
 private:
     
@@ -35,7 +36,6 @@ private:
     *   position
     */
     
-    unsigned short lives;
 
 
 };

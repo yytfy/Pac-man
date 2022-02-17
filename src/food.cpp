@@ -15,7 +15,7 @@ void food::draw() {
     else glPointSize(0.0);
 
 	glBegin(GL_POINTS);
-	glColor3f(1.0, 0.5, 0.0);
+	glColor3f(1.0, 0.549, 0.0);
 	glVertex2f(pos.second, pos.first);
 	glEnd();
 

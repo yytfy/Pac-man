@@ -7,6 +7,7 @@
 #include<memory>
 #include"gl/glut.h"
 #include"tool.hpp"
+#include<cstdlib>
 
 using namespace std;
 
@@ -16,7 +17,7 @@ public:
 
     unique_ptr<pca_man> player;
     void draw();
-    bool reach(int x, int y) { return blocks[x][y].reach(); }
+    bool reach(short x, short y);
     /*
         游戏状态
         0 : 游戏正常进行
@@ -24,6 +25,7 @@ public:
     */
     USHORT checkState();
     void gameplay(double t);
+    double timeCnt;
 
 
 
@@ -42,10 +44,16 @@ private:
         2: frighten mode
     */
     USHORT gostMode;
+    double gostModeTimeCnt;
     AStarMap pathFinder;
-    void drawPoint();
+    void drawUI();
+    void resetGosts();
+    void resetPlayerPos();
     void BlinkyAction(double t, short px, short py);
     void PinkyAction(double t, short px, short py);
+    void InkyAction(double t, short px, short py);
+    void ClydeAction(double t, short px, short py);
+    pair<short, short> randomPath(short x, short y);
 
 };
 #endif
